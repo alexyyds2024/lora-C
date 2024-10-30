@@ -142,17 +142,15 @@ if __name__ == '__main__':
         'merge_weights': True
     }
     logger_dir = args.log_dir
-    logger_path = '{}/logger_{}/train_{}_{}_rank_{:d}_alpha_{:d}_{}_{}'.format(args.log_dir, args.model, args.model,
+    logger_path = '{}/logger_{}/train_{}_{}_rank_{:d}_alpha_{:d}_{}'.format(args.log_dir, args.model, args.model,
                                                                                args.dataset,
                                                                                args.rank, args.alpha,
-                                                                               args.load_weight_tag,
                                                                                args.ratio)
     os.environ['CUDA_VISIBLE_DEVICES'] = args.device
 
-    checkpoint_dir = '{}/checkpoint_{}/{}_{}_rank_{:d}_alpha_{:d}_{}'.format(args.checkpoint_base_dir, args.model,
+    checkpoint_dir = '{}/checkpoint_{}/{}_{}_rank_{:d}_alpha_{:d}'.format(args.checkpoint_base_dir, args.model,
                                                                              args.model, args.dataset,
-                                                                             args.rank, args.alpha,
-                                                                             args.load_weight_tag)
+                                                                             args.rank, args.alpha)
 
     if args.dataset == 'icons50':
         checkpoint_dir = '{}_{}'.format(checkpoint_dir, args.test_style)
